@@ -6,3 +6,4 @@ plotly==5.3.1
 trafilatura==1.0.0
 beautifulsoup4==4.10.0
 requests==2.26.0
+streamlit==1.22.0
