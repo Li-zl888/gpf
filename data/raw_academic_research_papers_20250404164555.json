@@ -1,0 +1,614 @@
+[
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 0.58,
+        "metric": "Urban to Rural Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 1.152,
+        "metric": "Rural to Urban Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 0.136,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Primary School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 0.148,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Middle School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 0.219,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "High School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 0.258,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "College"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 0.349,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "University"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 0.334,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Postgraduate"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 0.619,
+        "metric": "Urban to Rural Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 1.266,
+        "metric": "Rural to Urban Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 0.155,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Primary School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 0.159,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Middle School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 0.251,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "High School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 0.264,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "College"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 0.391,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "University"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 0.349,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Postgraduate"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 0.674,
+        "metric": "Urban to Rural Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 1.407,
+        "metric": "Rural to Urban Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 0.173,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Primary School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 0.185,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Middle School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 0.253,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "High School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 0.305,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "College"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 0.454,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "University"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 0.455,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Postgraduate"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 0.732,
+        "metric": "Urban to Rural Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 1.466,
+        "metric": "Rural to Urban Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 0.184,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Primary School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 0.195,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Middle School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 0.277,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "High School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 0.29,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "College"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 0.459,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "University"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 0.447,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Postgraduate"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 0.763,
+        "metric": "Urban to Rural Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 1.459,
+        "metric": "Rural to Urban Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 0.158,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Primary School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 0.197,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Middle School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 0.267,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "High School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 0.355,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "College"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 0.403,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "University"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 0.443,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Postgraduate"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.807,
+        "metric": "Urban to Rural Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 1.651,
+        "metric": "Rural to Urban Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.185,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Primary School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.212,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Middle School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.262,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "High School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.352,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "College"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.474,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "University"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.437,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Postgraduate"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.892,
+        "metric": "Urban to Rural Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 1.71,
+        "metric": "Rural to Urban Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.197,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Primary School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.203,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Middle School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.275,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "High School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.34,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "College"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.578,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "University"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.501,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Postgraduate"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.936,
+        "metric": "Urban to Rural Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 1.821,
+        "metric": "Rural to Urban Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.193,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Primary School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.216,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Middle School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.32,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "High School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.414,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "College"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.572,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "University"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.508,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Postgraduate"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 1.029,
+        "metric": "Urban to Rural Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 1.897,
+        "metric": "Rural to Urban Flow",
+        "source": "Academic Research Papers"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.248,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Primary School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.21,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Middle School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.325,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "High School"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.444,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "College"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.547,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "University"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.537,
+        "metric": "Migration by Education",
+        "source": "Academic Research Papers",
+        "demographic": "Education",
+        "group": "Postgraduate"
+    }
+]

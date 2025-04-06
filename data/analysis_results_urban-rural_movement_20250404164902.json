@@ -1,0 +1,111 @@
+{
+    "overview": {},
+    "insights": [
+        "Guangdong Province is experiencing net urbanization with an average of 0.76 million more people moving from rural to urban areas than the reverse.",
+        "The trend shows increasing urbanization over time."
+    ],
+    "urban_rural_flows": [
+        {
+            "year": 2017,
+            "value": 0.698
+        },
+        {
+            "year": 2018,
+            "value": 0.743
+        },
+        {
+            "year": 2019,
+            "value": 0.81
+        },
+        {
+            "year": 2020,
+            "value": 0.886
+        },
+        {
+            "year": 2021,
+            "value": 0.855
+        },
+        {
+            "year": 2022,
+            "value": 0.998
+        },
+        {
+            "year": 2023,
+            "value": 1.041
+        }
+    ],
+    "rural_urban_flows": [
+        {
+            "year": 2017,
+            "value": 1.372
+        },
+        {
+            "year": 2018,
+            "value": 1.482
+        },
+        {
+            "year": 2019,
+            "value": 1.509
+        },
+        {
+            "year": 2020,
+            "value": 1.556
+        },
+        {
+            "year": 2021,
+            "value": 1.683
+        },
+        {
+            "year": 2022,
+            "value": 1.831
+        },
+        {
+            "year": 2023,
+            "value": 1.908
+        }
+    ],
+    "time_trends": [
+        {
+            "year": 2017,
+            "urban_to_rural": 0.698,
+            "rural_to_urban": 1.372,
+            "net_flow": 0.6740000000000002
+        },
+        {
+            "year": 2018,
+            "urban_to_rural": 0.743,
+            "rural_to_urban": 1.482,
+            "net_flow": 0.739
+        },
+        {
+            "year": 2019,
+            "urban_to_rural": 0.81,
+            "rural_to_urban": 1.509,
+            "net_flow": 0.6989999999999998
+        },
+        {
+            "year": 2020,
+            "urban_to_rural": 0.886,
+            "rural_to_urban": 1.556,
+            "net_flow": 0.67
+        },
+        {
+            "year": 2021,
+            "urban_to_rural": 0.855,
+            "rural_to_urban": 1.683,
+            "net_flow": 0.8280000000000001
+        },
+        {
+            "year": 2022,
+            "urban_to_rural": 0.998,
+            "rural_to_urban": 1.831,
+            "net_flow": 0.833
+        },
+        {
+            "year": 2023,
+            "urban_to_rural": 1.041,
+            "rural_to_urban": 1.908,
+            "net_flow": 0.867
+        }
+    ]
+}

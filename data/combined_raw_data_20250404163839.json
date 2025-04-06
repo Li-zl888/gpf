@@ -1,0 +1,344 @@
+[
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 2.434,
+        "metric": "Provincial Immigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2015,
+        "value": 1.842,
+        "metric": "Provincial Emigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 2.707,
+        "metric": "Provincial Immigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2016,
+        "value": 1.899,
+        "metric": "Provincial Emigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 2.742,
+        "metric": "Provincial Immigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2017,
+        "value": 1.93,
+        "metric": "Provincial Emigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 3.003,
+        "metric": "Provincial Immigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2018,
+        "value": 2.093,
+        "metric": "Provincial Emigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 3.064,
+        "metric": "Provincial Immigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2019,
+        "value": 2.23,
+        "metric": "Provincial Emigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 3.304,
+        "metric": "Provincial Immigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 2.284,
+        "metric": "Provincial Emigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.485,
+        "metric": "Immigration Age 0-14",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "0-14"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.552,
+        "metric": "Immigration Age 15-24",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "15-24"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.585,
+        "metric": "Immigration Age 25-34",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "25-34"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.417,
+        "metric": "Immigration Age 35-44",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "35-44"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.303,
+        "metric": "Immigration Age 45-59",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "45-59"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2020,
+        "value": 0.098,
+        "metric": "Immigration Age 60+",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "60+"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 3.493,
+        "metric": "Provincial Immigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 2.391,
+        "metric": "Provincial Emigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.489,
+        "metric": "Immigration Age 0-14",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "0-14"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.7,
+        "metric": "Immigration Age 15-24",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "15-24"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.586,
+        "metric": "Immigration Age 25-34",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "25-34"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.436,
+        "metric": "Immigration Age 35-44",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "35-44"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.305,
+        "metric": "Immigration Age 45-59",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "45-59"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2021,
+        "value": 0.112,
+        "metric": "Immigration Age 60+",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "60+"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 3.459,
+        "metric": "Provincial Immigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 2.498,
+        "metric": "Provincial Emigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.542,
+        "metric": "Immigration Age 0-14",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "0-14"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.637,
+        "metric": "Immigration Age 15-24",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "15-24"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.669,
+        "metric": "Immigration Age 25-34",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "25-34"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.356,
+        "metric": "Immigration Age 35-44",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "35-44"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.322,
+        "metric": "Immigration Age 45-59",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "45-59"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2022,
+        "value": 0.088,
+        "metric": "Immigration Age 60+",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "60+"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 3.641,
+        "metric": "Provincial Immigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 2.536,
+        "metric": "Provincial Emigration",
+        "source": "China National Bureau of Statistics"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.55,
+        "metric": "Immigration Age 0-14",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "0-14"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.676,
+        "metric": "Immigration Age 15-24",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "15-24"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.674,
+        "metric": "Immigration Age 25-34",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "25-34"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.476,
+        "metric": "Immigration Age 35-44",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "35-44"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.262,
+        "metric": "Immigration Age 45-59",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "45-59"
+    },
+    {
+        "region": "Guangdong",
+        "year": 2023,
+        "value": 0.113,
+        "metric": "Immigration Age 60+",
+        "source": "China National Bureau of Statistics",
+        "demographic": "Age",
+        "group": "60+"
+    }
+]

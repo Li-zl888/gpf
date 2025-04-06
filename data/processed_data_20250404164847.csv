@@ -1,0 +1,95 @@
+region,year,value,metric,source,demographic,group,source_reliability
+Guangdong,2017,2.827,Provincial Immigration,China National Bureau of Statistics,,,0.95
+Guangdong,2017,2.004,Provincial Emigration,China National Bureau of Statistics,,,0.95
+Guangdong,2018,2.892,Provincial Immigration,China National Bureau of Statistics,,,0.95
+Guangdong,2018,2.045,Provincial Emigration,China National Bureau of Statistics,,,0.95
+Guangdong,2019,3.158,Provincial Immigration,China National Bureau of Statistics,,,0.95
+Guangdong,2019,2.218,Provincial Emigration,China National Bureau of Statistics,,,0.95
+Guangdong,2020,3.349,Provincial Immigration,China National Bureau of Statistics,,,0.95
+Guangdong,2020,2.311,Provincial Emigration,China National Bureau of Statistics,,,0.95
+Guangdong,2020,0.517,Immigration Age 0-14,China National Bureau of Statistics,Age,0-14,0.95
+Guangdong,2020,0.678,Immigration Age 15-24,China National Bureau of Statistics,Age,15-24,0.95
+Guangdong,2020,0.611,Immigration Age 25-34,China National Bureau of Statistics,Age,25-34,0.95
+Guangdong,2020,0.4,Immigration Age 35-44,China National Bureau of Statistics,Age,35-44,0.95
+Guangdong,2020,0.272,Immigration Age 45-59,China National Bureau of Statistics,Age,45-59,0.95
+Guangdong,2020,0.11,Immigration Age 60+,China National Bureau of Statistics,Age,60+,0.95
+Guangdong,2021,3.399,Provincial Immigration,China National Bureau of Statistics,,,0.95
+Guangdong,2021,2.345,Provincial Emigration,China National Bureau of Statistics,,,0.95
+Guangdong,2021,0.409,Immigration Age 0-14,China National Bureau of Statistics,Age,0-14,0.95
+Guangdong,2021,0.56,Immigration Age 15-24,China National Bureau of Statistics,Age,15-24,0.95
+Guangdong,2021,0.597,Immigration Age 25-34,China National Bureau of Statistics,Age,25-34,0.95
+Guangdong,2021,0.401,Immigration Age 35-44,China National Bureau of Statistics,Age,35-44,0.95
+Guangdong,2021,0.322,Immigration Age 45-59,China National Bureau of Statistics,Age,45-59,0.95
+Guangdong,2021,0.089,Immigration Age 60+,China National Bureau of Statistics,Age,60+,0.95
+Guangdong,2022,3.604,Provincial Immigration,China National Bureau of Statistics,,,0.95
+Guangdong,2022,2.57,Provincial Emigration,China National Bureau of Statistics,,,0.95
+Guangdong,2022,0.536,Immigration Age 0-14,China National Bureau of Statistics,Age,0-14,0.95
+Guangdong,2022,0.594,Immigration Age 15-24,China National Bureau of Statistics,Age,15-24,0.95
+Guangdong,2022,0.682,Immigration Age 25-34,China National Bureau of Statistics,Age,25-34,0.95
+Guangdong,2022,0.406,Immigration Age 35-44,China National Bureau of Statistics,Age,35-44,0.95
+Guangdong,2022,0.313,Immigration Age 45-59,China National Bureau of Statistics,Age,45-59,0.95
+Guangdong,2022,0.108,Immigration Age 60+,China National Bureau of Statistics,Age,60+,0.95
+Guangdong,2023,3.694,Provincial Immigration,China National Bureau of Statistics,,,0.95
+Guangdong,2023,2.672,Provincial Emigration,China National Bureau of Statistics,,,0.95
+Guangdong,2023,0.533,Immigration Age 0-14,China National Bureau of Statistics,Age,0-14,0.95
+Guangdong,2023,0.658,Immigration Age 15-24,China National Bureau of Statistics,Age,15-24,0.95
+Guangdong,2023,0.597,Immigration Age 25-34,China National Bureau of Statistics,Age,25-34,0.95
+Guangdong,2023,0.514,Immigration Age 35-44,China National Bureau of Statistics,Age,35-44,0.95
+Guangdong,2023,0.308,Immigration Age 45-59,China National Bureau of Statistics,Age,45-59,0.95
+Guangdong,2023,0.104,Immigration Age 60+,China National Bureau of Statistics,Age,60+,0.95
+Guangdong,2017,0.698,Urban to Rural Flow,Academic Research Papers,,,0.8
+Guangdong,2017,1.372,Rural to Urban Flow,Academic Research Papers,,,0.8
+Guangdong,2017,0.178,Migration by Education,Academic Research Papers,Education,Primary School,0.8
+Guangdong,2017,0.167,Migration by Education,Academic Research Papers,Education,Middle School,0.8
+Guangdong,2017,0.223,Migration by Education,Academic Research Papers,Education,High School,0.8
+Guangdong,2017,0.343,Migration by Education,Academic Research Papers,Education,College,0.8
+Guangdong,2017,0.456,Migration by Education,Academic Research Papers,Education,University,0.8
+Guangdong,2017,0.392,Migration by Education,Academic Research Papers,Education,Postgraduate,0.8
+Guangdong,2018,0.743,Urban to Rural Flow,Academic Research Papers,,,0.8
+Guangdong,2018,1.482,Rural to Urban Flow,Academic Research Papers,,,0.8
+Guangdong,2018,0.161,Migration by Education,Academic Research Papers,Education,Primary School,0.8
+Guangdong,2018,0.181,Migration by Education,Academic Research Papers,Education,Middle School,0.8
+Guangdong,2018,0.289,Migration by Education,Academic Research Papers,Education,High School,0.8
+Guangdong,2018,0.333,Migration by Education,Academic Research Papers,Education,College,0.8
+Guangdong,2018,0.453,Migration by Education,Academic Research Papers,Education,University,0.8
+Guangdong,2018,0.422,Migration by Education,Academic Research Papers,Education,Postgraduate,0.8
+Guangdong,2019,0.81,Urban to Rural Flow,Academic Research Papers,,,0.8
+Guangdong,2019,1.509,Rural to Urban Flow,Academic Research Papers,,,0.8
+Guangdong,2019,0.184,Migration by Education,Academic Research Papers,Education,Primary School,0.8
+Guangdong,2019,0.209,Migration by Education,Academic Research Papers,Education,Middle School,0.8
+Guangdong,2019,0.312,Migration by Education,Academic Research Papers,Education,High School,0.8
+Guangdong,2019,0.329,Migration by Education,Academic Research Papers,Education,College,0.8
+Guangdong,2019,0.44,Migration by Education,Academic Research Papers,Education,University,0.8
+Guangdong,2019,0.469,Migration by Education,Academic Research Papers,Education,Postgraduate,0.8
+Guangdong,2020,0.886,Urban to Rural Flow,Academic Research Papers,,,0.8
+Guangdong,2020,1.556,Rural to Urban Flow,Academic Research Papers,,,0.8
+Guangdong,2020,0.185,Migration by Education,Academic Research Papers,Education,Primary School,0.8
+Guangdong,2020,0.216,Migration by Education,Academic Research Papers,Education,Middle School,0.8
+Guangdong,2020,0.305,Migration by Education,Academic Research Papers,Education,High School,0.8
+Guangdong,2020,0.323,Migration by Education,Academic Research Papers,Education,College,0.8
+Guangdong,2020,0.495,Migration by Education,Academic Research Papers,Education,University,0.8
+Guangdong,2020,0.532,Migration by Education,Academic Research Papers,Education,Postgraduate,0.8
+Guangdong,2021,0.855,Urban to Rural Flow,Academic Research Papers,,,0.8
+Guangdong,2021,1.683,Rural to Urban Flow,Academic Research Papers,,,0.8
+Guangdong,2021,0.201,Migration by Education,Academic Research Papers,Education,Primary School,0.8
+Guangdong,2021,0.188,Migration by Education,Academic Research Papers,Education,Middle School,0.8
+Guangdong,2021,0.28,Migration by Education,Academic Research Papers,Education,High School,0.8
+Guangdong,2021,0.422,Migration by Education,Academic Research Papers,Education,College,0.8
+Guangdong,2021,0.548,Migration by Education,Academic Research Papers,Education,University,0.8
+Guangdong,2021,0.492,Migration by Education,Academic Research Papers,Education,Postgraduate,0.8
+Guangdong,2022,0.998,Urban to Rural Flow,Academic Research Papers,,,0.8
+Guangdong,2022,1.831,Rural to Urban Flow,Academic Research Papers,,,0.8
+Guangdong,2022,0.239,Migration by Education,Academic Research Papers,Education,Primary School,0.8
+Guangdong,2022,0.239,Migration by Education,Academic Research Papers,Education,Middle School,0.8
+Guangdong,2022,0.316,Migration by Education,Academic Research Papers,Education,High School,0.8
+Guangdong,2022,0.436,Migration by Education,Academic Research Papers,Education,College,0.8
+Guangdong,2022,0.633,Migration by Education,Academic Research Papers,Education,University,0.8
+Guangdong,2022,0.501,Migration by Education,Academic Research Papers,Education,Postgraduate,0.8
+Guangdong,2023,1.041,Urban to Rural Flow,Academic Research Papers,,,0.8
+Guangdong,2023,1.908,Rural to Urban Flow,Academic Research Papers,,,0.8
+Guangdong,2023,0.259,Migration by Education,Academic Research Papers,Education,Primary School,0.8
+Guangdong,2023,0.258,Migration by Education,Academic Research Papers,Education,Middle School,0.8
+Guangdong,2023,0.335,Migration by Education,Academic Research Papers,Education,High School,0.8
+Guangdong,2023,0.478,Migration by Education,Academic Research Papers,Education,College,0.8
+Guangdong,2023,0.594,Migration by Education,Academic Research Papers,Education,University,0.8
+Guangdong,2023,0.616,Migration by Education,Academic Research Papers,Education,Postgraduate,0.8

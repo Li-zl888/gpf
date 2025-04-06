@@ -1,0 +1,1197 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>广东人口流动分析 | Guangdong Population Flow Analysis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .nav-tabs .nav-link {
+            color: #adb5bd;
+        }
+        .nav-tabs .nav-link.active {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            border-color: #495057;
+        }
+        .card {
+            background-color: #2d2d2d;
+            border-color: #495057;
+        }
+        .form-control, .form-select {
+            background-color: #3d3d3d;
+            color: #e0e0e0;
+            border-color: #495057;
+        }
+        .form-control:focus, .form-select:focus {
+            background-color: #3d3d3d;
+            color: #e0e0e0;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .alert-danger {
+            background-color: #350d0d;
+            color: #f8d7da;
+            border-color: #842029;
+        }
+        .alert-success {
+            background-color: #0d1b0d;
+            color: #d1e7dd;
+            border-color: #0f5132;
+        }
+        /* Pagination styles */
+        .pagination-visible {
+            display: flex !important;
+        }
+        .btn-outline-secondary {
+            color: #adb5bd;
+            border-color: #495057;
+        }
+        .btn-outline-secondary:hover:not(:disabled) {
+            background-color: #495057;
+            color: #fff;
+        }
+        .btn-outline-secondary:disabled {
+            color: #6c757d;
+        }
+        .source-badge {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        #visualization-container {
+            width: 100%;
+            height: 600px;
+            border: none;
+            background-color: #2d2d2d;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-4">
+        <!-- Language Selector -->
+        <div class="d-flex justify-content-end mb-2">
+            <div class="btn-group" role="group" aria-label="Language Selector">
+                <button type="button" class="btn btn-sm btn-outline-secondary active" id="lang-zh">中文</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="lang-en">English</button>
+            </div>
+        </div>
+
+        <h1 class="text-center mb-4">
+            <span class="lang-zh">广东人口流动分析</span>
+            <span class="lang-en d-none">Guangdong Population Flow Analysis</span>
+        </h1>
+
+        <ul class="nav nav-tabs mb-4" id="mainTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="data-collection-tab" data-bs-toggle="tab" data-bs-target="#data-collection" type="button" role="tab" aria-controls="data-collection" aria-selected="true">
+                    <span class="lang-zh">数据采集与处理</span>
+                    <span class="lang-en d-none">Data Collection & Processing</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="analysis-tab" data-bs-toggle="tab" data-bs-target="#analysis" type="button" role="tab" aria-controls="analysis" aria-selected="false">
+                    <span class="lang-zh">分析结果</span>
+                    <span class="lang-en d-none">Analysis Results</span>
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="visualization-tab" data-bs-toggle="tab" data-bs-target="#visualization" type="button" role="tab" aria-controls="visualization" aria-selected="false">
+                    <span class="lang-zh">可视化</span>
+                    <span class="lang-en d-none">Visualization</span>
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="mainTabContent">
+            <!-- Data Collection & Processing Tab -->
+            <div class="tab-pane fade show active" id="data-collection" role="tabpanel" aria-labelledby="data-collection-tab">
+                <div class="row">
+                    <!-- Left sidebar with controls -->
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>
+                                    <span class="lang-zh">控制面板</span>
+                                    <span class="lang-en d-none">Controls</span>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <h6>
+                                    <span class="lang-zh">数据采集</span>
+                                    <span class="lang-en d-none">Data Collection</span>
+                                </h6>
+                                <button id="scrape-btn" class="btn btn-primary mb-3 w-100">
+                                    <span class="lang-zh">采集新数据</span>
+                                    <span class="lang-en d-none">Scrape New Data</span>
+                                </button>
+
+                                <div class="mb-3">
+                                    <label>
+                                        <span class="lang-zh">选择数据源：</span>
+                                        <span class="lang-en d-none">Select Data Sources:</span>
+                                    </label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Guangdong Statistical Bureau" id="source-gsb" checked>
+                                        <label class="form-check-label" for="source-gsb">
+                                            <span class="lang-zh">广东省统计局</span>
+                                            <span class="lang-en d-none">Guangdong Statistical Bureau</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="China National Bureau of Statistics" id="source-cnbs" checked>
+                                        <label class="form-check-label" for="source-cnbs">
+                                            <span class="lang-zh">中国国家统计局</span>
+                                            <span class="lang-en d-none">China National Bureau of Statistics</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Guangdong Migration Reports" id="source-gmr" checked>
+                                        <label class="form-check-label" for="source-gmr">
+                                            <span class="lang-zh">广东省人口迁移报告</span>
+                                            <span class="lang-en d-none">Guangdong Migration Reports</span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="Academic Research Papers" id="source-arp" checked>
+                                        <label class="form-check-label" for="source-arp">
+                                            <span class="lang-zh">学术研究论文</span>
+                                            <span class="lang-en d-none">Academic Research Papers</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h6 class="mt-4">
+                                    <span class="lang-zh">数据处理</span>
+                                    <span class="lang-en d-none">Data Processing</span>
+                                </h6>
+                                <button id="process-btn" class="btn btn-primary mb-3 w-100">
+                                    <span class="lang-zh">处理数据</span>
+                                    <span class="lang-en d-none">Process Data</span>
+                                </button>
+
+                                <div class="mb-3">
+                                    <label for="process-regions" class="form-label">
+                                        <span class="lang-zh">按地区筛选：</span>
+                                        <span class="lang-en d-none">Filter by Regions:</span>
+                                    </label>
+                                    <select id="process-regions" class="form-select" multiple>
+                                        {% for region in available_regions %}
+                                        <option value="{{ region }}">{{ region }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="process-year-range" class="form-label">
+                                        <span class="lang-zh">年份范围：</span>
+                                        <span class="lang-en d-none">Year Range:</span>
+                                    </label>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" id="process-start-year" placeholder="开始">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" id="process-end-year" placeholder="结束">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main content area -->
+                    <div class="col-md-9">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>
+                                    <span class="lang-zh">数据状态</span>
+                                    <span class="lang-en d-none">Data Status</span>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="data-alerts" class="mb-3"></div>
+
+                                <div class="mb-4">
+                                    <h6>
+                                        <span class="lang-zh">数据采集状态</span>
+                                        <span class="lang-en d-none">Data Collection Status</span>
+                                    </h6>
+                                    <div class="progress mb-2">
+                                        <div id="scrape-progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                    </div>
+                                    <div id="scrape-status">
+                                        <span class="lang-zh">尚未采集数据。</span>
+                                        <span class="lang-en d-none">No data scraped yet.</span>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4">
+                                    <h6>
+                                        <span class="lang-zh">数据处理状态</span>
+                                        <span class="lang-en d-none">Data Processing Status</span>
+                                    </h6>
+                                    <div class="progress mb-2">
+                                        <div id="process-progress" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                                    </div>
+                                    <div id="process-status">
+                                        <span class="lang-zh">尚未处理数据。</span>
+                                        <span class="lang-en d-none">No data processed yet.</span>
+                                    </div>
+                                </div>
+
+                                <div id="data-preview-container">
+                                    <h6>
+                                        <span class="lang-zh">数据预览</span>
+                                        <span class="lang-en d-none">Data Preview</span>
+                                    </h6>
+                                    <div class="table-responsive">
+                                        <table id="data-preview-table" class="table table-dark table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <span class="lang-zh">地区</span>
+                                                        <span class="lang-en d-none">Region</span>
+                                                    </th>
+                                                    <th>
+                                                        <span class="lang-zh">年份</span>
+                                                        <span class="lang-en d-none">Year</span>
+                                                    </th>
+                                                    <th>
+                                                        <span class="lang-zh">指标</span>
+                                                        <span class="lang-en d-none">Metric</span>
+                                                    </th>
+                                                    <th>
+                                                        <span class="lang-zh">数值</span>
+                                                        <span class="lang-en d-none">Value</span>
+                                                    </th>
+                                                    <th>
+                                                        <span class="lang-zh">数据源</span>
+                                                        <span class="lang-en d-none">Source</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="5" class="text-center">
+                                                        <span class="lang-zh">暂无数据。请先处理数据。</span>
+                                                        <span class="lang-en d-none">No data available. Please process data first.</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- Pagination Controls -->
+                                    <div id="data-pagination" class="d-none justify-content-between align-items-center mt-3">
+                                        <div class="pagination-info">
+                                            <span class="lang-zh">显示 <span id="pagination-start">1</span> 到 <span id="pagination-end">10</span> 条，共 <span id="pagination-total">0</span> 条记录</span>
+                                            <span class="lang-en d-none">Showing <span id="pagination-start">1</span> to <span id="pagination-end">10</span> of <span id="pagination-total">0</span> entries</span>
+                                        </div>
+                                        <div class="btn-group" role="group" aria-label="Pagination controls">
+                                            <button id="pagination-first" class="btn btn-sm btn-outline-secondary" disabled>&laquo;</button>
+                                            <button id="pagination-prev" class="btn btn-sm btn-outline-secondary" disabled>&lsaquo;</button>
+                                            <button id="pagination-page" class="btn btn-sm btn-outline-secondary" disabled>
+                                                <span class="lang-zh">第 <span id="pagination-current">1</span> 页，共 <span id="pagination-pages">1</span> 页</span>
+                                                <span class="lang-en d-none">Page <span id="pagination-current">1</span> of <span id="pagination-pages">1</span></span>
+                                            </button>
+                                            <button id="pagination-next" class="btn btn-sm btn-outline-secondary" disabled>&rsaquo;</button>
+                                            <button id="pagination-last" class="btn btn-sm btn-outline-secondary" disabled>&raquo;</button>
+                                        </div>
+                                        <div class="pagination-size">
+                                            <select id="pagination-size" class="form-select form-select-sm">
+                                                <option value="10">
+                                                    <span class="lang-zh">每页 10 条</span>
+                                                    <span class="lang-en d-none">10 per page</span>
+                                                </option>
+                                                <option value="25">
+                                                    <span class="lang-zh">每页 25 条</span>
+                                                    <span class="lang-en d-none">25 per page</span>
+                                                </option>
+                                                <option value="50">
+                                                    <span class="lang-zh">每页 50 条</span>
+                                                    <span class="lang-en d-none">50 per page</span>
+                                                </option>
+                                                <option value="100">
+                                                    <span class="lang-zh">每页 100 条</span>
+                                                    <span class="lang-en d-none">100 per page</span>
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analysis Results Tab -->
+            <div class="tab-pane fade" id="analysis" role="tabpanel" aria-labelledby="analysis-tab">
+                <div class="row">
+                    <!-- Left sidebar with controls -->
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>
+                                    <span class="lang-zh">分析参数</span>
+                                    <span class="lang-en d-none">Analysis Parameters</span>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="analysis-type" class="form-label">
+                                        <span class="lang-zh">选择分析类型：</span>
+                                        <span class="lang-en d-none">Select Analysis Type:</span>
+                                    </label>
+                                    <select id="analysis-type" class="form-select">
+                                        {% for analysis_type in analysis_types %}
+                                        <option value="{{ analysis_type }}">{{ analysis_type }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="analysis-regions" class="form-label">
+                                        <span class="lang-zh">按地区筛选：</span>
+                                        <span class="lang-en d-none">Filter by Regions:</span>
+                                    </label>
+                                    <select id="analysis-regions" class="form-select" multiple>
+                                        {% for region in available_regions %}
+                                        <option value="{{ region }}">{{ region }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="analysis-year-range" class="form-label">
+                                        <span class="lang-zh">年份范围：</span>
+                                        <span class="lang-en d-none">Year Range:</span>
+                                    </label>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" id="analysis-start-year" placeholder="开始">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="number" class="form-control" id="analysis-end-year" placeholder="结束">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button id="run-analysis-btn" class="btn btn-primary w-100">
+                                    <span class="lang-zh">运行分析</span>
+                                    <span class="lang-en d-none">Run Analysis</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main content area -->
+                    <div class="col-md-9">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>
+                                    <span class="lang-zh">分析结果</span>
+                                    <span class="lang-en d-none">Analysis Results</span>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="analysis-alerts" class="mb-3"></div>
+
+                                <div id="analysis-overview" class="mb-4">
+                                    <h6>
+                                        <span class="lang-zh">概览</span>
+                                        <span class="lang-en d-none">Overview</span>
+                                    </h6>
+                                    <div id="overview-content">
+                                        <p>
+                                            <span class="lang-zh">暂无分析结果。请先运行分析。</span>
+                                            <span class="lang-en d-none">No analysis results available. Please run an analysis first.</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div id="analysis-insights" class="mb-4">
+                                    <h6>
+                                        <span class="lang-zh">关键洞察</span>
+                                        <span class="lang-en d-none">Key Insights</span>
+                                    </h6>
+                                    <ul id="insights-list">
+                                        <li>
+                                            <span class="lang-zh">运行分析以查看洞察。</span>
+                                            <span class="lang-en d-none">Run an analysis to see insights.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div id="analysis-details" class="mb-4">
+                                    <h6>
+                                        <span class="lang-zh">详细结果</span>
+                                        <span class="lang-en d-none">Detailed Results</span>
+                                    </h6>
+                                    <div id="details-content">
+                                        <p>
+                                            <span class="lang-zh">运行分析以查看详细结果。</span>
+                                            <span class="lang-en d-none">Run an analysis to see detailed results.</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization Tab -->
+            <div class="tab-pane fade" id="visualization" role="tabpanel" aria-labelledby="visualization-tab">
+                <div class="row">
+                    <!-- Left sidebar with controls -->
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5>
+                                    <span class="lang-zh">可视化设置</span>
+                                    <span class="lang-en d-none">Visualization Settings</span>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="viz-type" class="form-label">
+                                        <span class="lang-zh">可视化类型：</span>
+                                        <span class="lang-en d-none">Visualization Type:</span>
+                                    </label>
+                                    <select id="viz-type" class="form-select">
+                                        <option value="flow_map">
+                                            <span class="lang-zh">人口流动地图</span>
+                                            <span class="lang-en d-none">Population Flow Map</span>
+                                        </option>
+                                        <option value="time_series">
+                                            <span class="lang-zh">时间序列分析</span>
+                                            <span class="lang-en d-none">Time Series Analysis</span>
+                                        </option>
+                                        <option value="regional_comparison">
+                                            <span class="lang-zh">地区对比</span>
+                                            <span class="lang-en d-none">Regional Comparison</span>
+                                        </option>
+                                        <option value="demographic_breakdown">
+                                            <span class="lang-zh">人口结构分析</span>
+                                            <span class="lang-en d-none">Demographic Breakdown</span>
+                                        </option>
+                                        <option value="flow_direction">
+                                            <span class="lang-zh">流动方向分析</span>
+                                            <span class="lang-en d-none">Flow Direction Analysis</span>
+                                        </option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="viz-metric" class="form-label">
+                                        <span class="lang-zh">指标：</span>
+                                        <span class="lang-en d-none">Metric:</span>
+                                    </label>
+                                    <select id="viz-metric" class="form-select">
+                                        {% for metric in available_metrics %}
+                                        <option value="{{ metric }}">{{ metric }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="viz-regions" class="form-label">
+                                        <span class="lang-zh">按地区筛选：</span>
+                                        <span class="lang-en d-none">Filter by Regions:</span>
+                                    </label>
+                                    <select id="viz-regions" class="form-select" multiple>
+                                        {% for region in available_regions %}
+                                        <option value="{{ region }}">{{ region }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="viz-year" class="form-label">
+                                        <span class="lang-zh">年份：</span>
+                                        <span class="lang-en d-none">Year:</span>
+                                    </label>
+                                    <input type="number" class="form-control" id="viz-year" placeholder="年份">
+                                </div>
+
+                                <button id="generate-viz-btn" class="btn btn-primary w-100">
+                                    <span class="lang-zh">生成可视化</span>
+                                    <span class="lang-en d-none">Generate Visualization</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main content area -->
+                    <div class="col-md-9">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 id="viz-title">
+                                    <span class="lang-zh">可视化</span>
+                                    <span class="lang-en d-none">Visualization</span>
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="viz-alerts" class="mb-3"></div>
+
+                                <iframe id="visualization-container" src="about:blank"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Language switching
+            $('#lang-zh').click(function() {
+                $('.lang-zh').removeClass('d-none');
+                $('.lang-en').addClass('d-none');
+                $('#lang-zh').addClass('active');
+                $('#lang-en').removeClass('active');
+                localStorage.setItem('preferred_language', 'zh');
+            });
+
+            $('#lang-en').click(function() {
+                $('.lang-en').removeClass('d-none');
+                $('.lang-zh').addClass('d-none');
+                $('#lang-en').addClass('active');
+                $('#lang-zh').removeClass('active');
+                localStorage.setItem('preferred_language', 'en');
+            });
+
+            // Check for saved language preference
+            const savedLanguage = localStorage.getItem('preferred_language');
+            if (savedLanguage === 'en') {
+                $('#lang-en').click();
+            } else {
+                $('#lang-zh').click(); // Default to Chinese
+            }
+            // Pagination control event handlers
+            $('#pagination-first').click(function() {
+                if (!$(this).prop('disabled')) {
+                    loadDataPreview(1, pageSize);
+                }
+            });
+
+            $('#pagination-prev').click(function() {
+                if (!$(this).prop('disabled')) {
+                    loadDataPreview(currentPage - 1, pageSize);
+                }
+            });
+
+            $('#pagination-next').click(function() {
+                if (!$(this).prop('disabled')) {
+                    loadDataPreview(currentPage + 1, pageSize);
+                }
+            });
+
+            $('#pagination-last').click(function() {
+                if (!$(this).prop('disabled')) {
+                    loadDataPreview(totalPages, pageSize);
+                }
+            });
+
+            $('#pagination-size').change(function() {
+                const newSize = parseInt($(this).val());
+                loadDataPreview(1, newSize);
+            });
+            // Scrape data button click
+            $('#scrape-btn').click(function() {
+                // Get selected sources
+                const sources = [];
+                $('.form-check-input:checked').each(function() {
+                    sources.push($(this).val());
+                });
+
+                // Reset progress and status
+                $('#scrape-progress').css('width', '50%').attr('aria-valuenow', 50).text('50%');
+                $('#scrape-status').text('Scraping data...');
+                $('#data-alerts').html('');
+
+                // Send scrape request
+                $.ajax({
+                    url: '/scrape',
+                    type: 'POST',
+                    data: { sources: sources },
+                    success: function(response) {
+                        $('#scrape-progress').css('width', '100%').attr('aria-valuenow', 100).text('100%');
+                        $('#scrape-status').text(response.message);
+                        $('#data-alerts').html(`<div class="alert alert-success">${response.message}</div>`);
+
+                        // Update available regions and metrics
+                        if (response.available_regions) {
+                            updateSelectOptions('process-regions', response.available_regions);
+                            updateSelectOptions('analysis-regions', response.available_regions);
+                            updateSelectOptions('viz-regions', response.available_regions);
+                        }
+
+                        if (response.available_metrics) {
+                            updateSelectOptions('viz-metric', response.available_metrics);
+                        }
+
+                        // Load data preview
+                        loadDataPreview();
+                    },
+                    error: function(xhr) {
+                        const response = xhr.responseJSON || { message: 'Error scraping data.' };
+                        $('#scrape-progress').css('width', '0%').attr('aria-valuenow', 0).text('0%');
+                        $('#scrape-status').text('Scraping failed.');
+                        $('#data-alerts').html(`<div class="alert alert-danger">${response.message}</div>`);
+                    }
+                });
+            });
+
+            // Process data button click
+            $('#process-btn').click(function() {
+                // Get filter parameters
+                const regions = $('#process-regions').val();
+                const startYear = $('#process-start-year').val();
+                const endYear = $('#process-end-year').val();
+
+                // Reset progress and status
+                $('#process-progress').css('width', '50%').attr('aria-valuenow', 50).text('50%');
+                $('#process-status').text('Processing data...');
+                $('#data-alerts').html('');
+
+                // Send process request
+                $.ajax({
+                    url: '/process',
+                    type: 'POST',
+                    data: {
+                        regions: regions,
+                        start_year: startYear,
+                        end_year: endYear,
+                        use_sample: true  // Use sample data if no raw data is available
+                    },
+                    success: function(response) {
+                        $('#process-progress').css('width', '100%').attr('aria-valuenow', 100).text('100%');
+                        $('#process-status').text(response.message);
+                        $('#data-alerts').html(`<div class="alert alert-success">${response.message}</div>`);
+
+                        // Update available regions and metrics
+                        if (response.available_regions) {
+                            updateSelectOptions('process-regions', response.available_regions);
+                            updateSelectOptions('analysis-regions', response.available_regions);
+                            updateSelectOptions('viz-regions', response.available_regions);
+                        }
+
+                        if (response.available_metrics) {
+                            updateSelectOptions('viz-metric', response.available_metrics);
+                        }
+
+                        // Load data preview
+                        loadDataPreview();
+                    },
+                    error: function(xhr) {
+                        const response = xhr.responseJSON || { message: 'Error processing data.' };
+                        $('#process-progress').css('width', '0%').attr('aria-valuenow', 0).text('0%');
+                        $('#process-status').text('Processing failed.');
+                        $('#data-alerts').html(`<div class="alert alert-danger">${response.message}</div>`);
+                    }
+                });
+            });
+
+            // Run analysis button click
+            $('#run-analysis-btn').click(function() {
+                // Get analysis parameters
+                const analysisType = $('#analysis-type').val();
+                const regions = $('#analysis-regions').val();
+                const startYear = $('#analysis-start-year').val();
+                const endYear = $('#analysis-end-year').val();
+
+                // Reset and show loading status
+                $('#analysis-alerts').html('');
+                $('#overview-content').html('<p>Loading analysis results...</p>');
+                $('#insights-list').html('<li>Loading insights...</li>');
+                $('#details-content').html('<p>Loading detailed results...</p>');
+
+                // Send analysis request
+                $.ajax({
+                    url: '/analyze',
+                    type: 'POST',
+                    data: {
+                        analysis_type: analysisType,
+                        regions: regions,
+                        start_year: startYear,
+                        end_year: endYear
+                    },
+                    success: function(response) {
+                        $('#analysis-alerts').html(`<div class="alert alert-success">${response.message}</div>`);
+
+                        // Display results
+                        displayAnalysisResults(response.results);
+                    },
+                    error: function(xhr) {
+                        const response = xhr.responseJSON || { message: 'Error running analysis.' };
+                        $('#analysis-alerts').html(`<div class="alert alert-danger">${response.message}</div>`);
+                        $('#overview-content').html('<p>Analysis failed. Please check the error message above.</p>');
+                        $('#insights-list').html('<li>No insights available due to analysis failure.</li>');
+                        $('#details-content').html('<p>No detailed results available.</p>');
+                    }
+                });
+            });
+
+            // Generate visualization button click
+            $('#generate-viz-btn').click(function() {
+                // Get visualization parameters
+                const vizType = $('#viz-type').val();
+                const metric = $('#viz-metric').val();
+                const regions = $('#viz-regions').val();
+                const year = $('#viz-year').val();
+
+                // Reset and show loading status
+                $('#viz-alerts').html('');
+                $('#viz-title').text(`${vizType.replace('_', ' ').toTitleCase()} (Loading...)`);
+                $('#visualization-container').attr('src', 'about:blank');
+
+                // Send visualization request
+                $.ajax({
+                    url: '/visualize',
+                    type: 'POST',
+                    data: {
+                        viz_type: vizType,
+                        metric: metric,
+                        regions: regions,
+                        year: year
+                    },
+                    success: function(response) {
+                        $('#viz-alerts').html(`<div class="alert alert-success">${response.message}</div>`);
+                        $('#viz-title').text(vizType.replace('_', ' ').toTitleCase());
+
+                        // Load visualization in iframe
+                        $('#visualization-container').attr('src', response.viz_path);
+                    },
+                    error: function(xhr) {
+                        const response = xhr.responseJSON || { message: 'Error generating visualization.' };
+                        $('#viz-alerts').html(`<div class="alert alert-danger">${response.message}</div>`);
+                        $('#viz-title').text('Visualization (Failed)');
+                    }
+                });
+            });
+
+            // Global variables for pagination
+            let currentPage = 1;
+            let pageSize = 10;
+            let totalPages = 1;
+            let totalRecords = 0;
+
+            // Helper function to load data preview with pagination
+            function loadDataPreview(page = 1, size = 10) {
+                console.log(`Loading data preview... Page: ${page}, Size: ${size}`);
+                currentPage = page;
+                pageSize = size;
+
+                $('#data-preview-table tbody').html(
+                    '<tr><td colspan="5" class="text-center">' + 
+                    (localStorage.getItem('preferred_language') === 'en' ? 
+                    'Loading data...' : 
+                    '正在加载数据...') + 
+                    '</td></tr>'
+                );
+
+                // Hide pagination controls until we have data
+                $('#data-pagination').removeClass('pagination-visible').addClass('d-none');
+
+                $.ajax({
+                    url: '/data/latest',
+                    type: 'GET',
+                    data: {
+                        page: page,
+                        page_size: size
+                    },
+                    success: function(response) {
+                        console.log("Data received:", response);
+                        // Clear existing table data
+                        $('#data-preview-table tbody').empty();
+
+                        // Check for valid response
+                        if (response.status === 'success' && response.data && Array.isArray(response.data)) {
+                            const data = response.data;
+
+                            // Update pagination variables
+                            if (response.pagination) {
+                                currentPage = response.pagination.page;
+                                pageSize = response.pagination.page_size;
+                                totalPages = response.pagination.total_pages;
+                                totalRecords = response.pagination.total_records;
+
+                                // Update pagination UI
+                                updatePaginationControls(response.pagination);
+                            }
+
+                            if (data.length > 0) {
+                                // Add rows to table
+                                data.forEach(function(row) {
+                                    let rowHtml = '<tr>';
+                                    rowHtml += `<td>${row.region || '-'}</td>`;
+                                    rowHtml += `<td>${row.year || '-'}</td>`;
+                                    rowHtml += `<td>${row.metric || '-'}</td>`;
+                                    rowHtml += `<td>${row.value !== undefined && row.value !== null ? Number(row.value).toFixed(2) : '-'}</td>`;
+                                    rowHtml += `<td>${row.source || '-'}</td>`;
+                                    rowHtml += '</tr>';
+                                    $('#data-preview-table tbody').append(rowHtml);
+                                });
+
+                                // Show success message
+                                $('#data-alerts').html(`<div class="alert alert-success">` + 
+                                    (localStorage.getItem('preferred_language') === 'en' ? 
+                                    `Data loaded successfully. Showing page ${currentPage} of ${totalPages}.` : 
+                                    `数据加载成功。显示第 ${currentPage} 页，共 ${totalPages} 页。`) + 
+                                    `</div>`);
+
+                                // Show pagination controls
+                                $('#data-pagination').removeClass('d-none').addClass('pagination-visible');
+                                console.log('Showing pagination controls');
+                            } else {
+                                $('#data-preview-table tbody').html(
+                                    '<tr><td colspan="5" class="text-center">' + 
+                                    (localStorage.getItem('preferred_language') === 'en' ? 
+                                    'No data available for this page.' : 
+                                    '此页面暂无数据。') + 
+                                    '</td></tr>'
+                                );
+
+                                // Hide pagination if no data
+                                if (totalRecords === 0) {
+                                    $('#data-pagination').removeClass('pagination-visible').addClass('d-none');
+                                }
+                            }
+                        } else {
+                            console.error("Invalid response format:", response);
+                            $('#data-preview-table tbody').html(
+                                '<tr><td colspan="5" class="text-center">' + 
+                                (localStorage.getItem('preferred_language') === 'en' ? 
+                                'Error: Received invalid data format from server.' : 
+                                '错误：从服务器接收到无效的数据格式。') + 
+                                '</td></tr>'
+                            );
+                            $('#data-pagination').removeClass('pagination-visible').addClass('d-none');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error loading data:", status, error);
+                        $('#data-preview-table tbody').html(
+                            `<tr><td colspan="5" class="text-center">` + 
+                            (localStorage.getItem('preferred_language') === 'en' ? 
+                            `Error loading data: ${error}. Please process data first.` : 
+                            `加载数据错误: ${error}。请先处理数据。`) + 
+                            `</td></tr>`
+                        );
+                        $('#data-pagination').removeClass('pagination-visible').addClass('d-none');
+                    }
+                });
+            }
+
+            // Function to update pagination controls
+            function updatePaginationControls(pagination) {
+                const { page, page_size, total_pages, total_records, has_next, has_prev } = pagination;
+
+                // Update page info
+                $('#pagination-current').text(page);
+                $('#pagination-pages').text(total_pages);
+                $('#pagination-total').text(total_records);
+
+                // Calculate start and end record numbers
+                const start = (page - 1) * page_size + 1;
+                const end = Math.min(start + page_size - 1, total_records);
+                $('#pagination-start').text(start);
+                $('#pagination-end').text(end);
+
+                // Update page size dropdown
+                $('#pagination-size').val(page_size);
+
+                // Enable/disable navigation buttons
+                $('#pagination-first').prop('disabled', !has_prev);
+                $('#pagination-prev').prop('disabled', !has_prev);
+                $('#pagination-next').prop('disabled', !has_next);
+                $('#pagination-last').prop('disabled', !has_next);
+            }
+
+            // Helper function to display analysis results
+            function displayAnalysisResults(results) {
+                // Display overview
+                if (results.overview) {
+                    let overviewHtml = '<div class="row">';
+
+                    // Regions count
+                    if (results.overview.regions_count !== undefined) {
+                        overviewHtml += '<div class="col-md-4 mb-3">';
+                        overviewHtml += '<div class="card bg-dark">';
+                        overviewHtml += '<div class="card-body">';
+                        overviewHtml += '<h5 class="card-title">Regions</h5>';
+                        overviewHtml += `<p class="card-text display-4">${results.overview.regions_count}</p>`;
+                        overviewHtml += '</div></div></div>';
+                    }
+
+                    // Years span
+                    if (results.overview.years_span) {
+                        overviewHtml += '<div class="col-md-4 mb-3">';
+                        overviewHtml += '<div class="card bg-dark">';
+                        overviewHtml += '<div class="card-body">';
+                        overviewHtml += '<h5 class="card-title">Years Covered</h5>';
+                        overviewHtml += `<p class="card-text display-4">${results.overview.years_span[0]} - ${results.overview.years_span[1]}</p>`;
+                        overviewHtml += '</div></div></div>';
+                    }
+
+                    // Total data points
+                    if (results.overview.metrics_distribution) {
+                        const totalPoints = Object.values(results.overview.metrics_distribution).reduce((a, b) => a + b, 0);
+                        overviewHtml += '<div class="col-md-4 mb-3">';
+                        overviewHtml += '<div class="card bg-dark">';
+                        overviewHtml += '<div class="card-body">';
+                        overviewHtml += '<h5 class="card-title">Data Points</h5>';
+                        overviewHtml += `<p class="card-text display-4">${totalPoints}</p>`;
+                        overviewHtml += '</div></div></div>';
+                    }
+
+                    overviewHtml += '</div>';
+
+                    // Metrics distribution
+                    if (results.overview.metrics_distribution) {
+                        overviewHtml += '<div class="mt-3">';
+                        overviewHtml += '<h6>Metrics Distribution</h6>';
+                        overviewHtml += '<div class="mb-2">';
+
+                        Object.entries(results.overview.metrics_distribution).forEach(([metric, count]) => {
+                            overviewHtml += `<span class="badge bg-primary source-badge">${metric}: ${count}</span>`;
+                        });
+
+                        overviewHtml += '</div></div>';
+                    }
+
+                    // Regions list
+                    if (results.overview.regions && results.overview.regions.length > 0) {
+                        overviewHtml += '<div class="mt-3">';
+                        overviewHtml += '<h6>Regions</h6>';
+                        overviewHtml += '<div class="mb-2">';
+
+                        results.overview.regions.forEach(region => {
+                            overviewHtml += `<span class="badge bg-secondary source-badge">${region}</span>`;
+                        });
+
+                        overviewHtml += '</div></div>';
+                    }
+
+                    $('#overview-content').html(overviewHtml);
+                } else {
+                    $('#overview-content').html('<p>No overview information available.</p>');
+                }
+
+                // Display insights
+                if (results.insights && results.insights.length > 0) {
+                    let insightsHtml = '';
+                    results.insights.forEach(insight => {
+                        insightsHtml += `<li>${insight}</li>`;
+                    });
+                    $('#insights-list').html(insightsHtml);
+                } else {
+                    $('#insights-list').html('<li>No insights available.</li>');
+                }
+
+                // Display detailed results
+                let detailsHtml = '';
+
+                // Top regions
+                if (results.top_regions) {
+                    if (results.top_regions.inflow && results.top_regions.inflow.length > 0) {
+                        detailsHtml += '<div class="mb-4">';
+                        detailsHtml += '<h6>Top Regions by Immigration</h6>';
+                        detailsHtml += '<div class="table-responsive">';
+                        detailsHtml += '<table class="table table-dark table-striped">';
+                        detailsHtml += '<thead><tr><th>Region</th><th>Immigration Value</th></tr></thead>';
+                        detailsHtml += '<tbody>';
+
+                        results.top_regions.inflow.forEach(row => {
+                            detailsHtml += `<tr><td>${row.region}</td><td>${row.value.toFixed(2)}</td></tr>`;
+                        });
+
+                        detailsHtml += '</tbody></table></div></div>';
+                    }
+
+                    if (results.top_regions.outflow && results.top_regions.outflow.length > 0) {
+                        detailsHtml += '<div class="mb-4">';
+                        detailsHtml += '<h6>Top Regions by Emigration</h6>';
+                        detailsHtml += '<div class="table-responsive">';
+                        detailsHtml += '<table class="table table-dark table-striped">';
+                        detailsHtml += '<thead><tr><th>Region</th><th>Emigration Value</th></tr></thead>';
+                        detailsHtml += '<tbody>';
+
+                        results.top_regions.outflow.forEach(row => {
+                            detailsHtml += `<tr><td>${row.region}</td><td>${row.value.toFixed(2)}</td></tr>`;
+                        });
+
+                        detailsHtml += '</tbody></table></div></div>';
+                    }
+                }
+
+                // Net flows (for Inter-city Migration)
+                if (results.net_flows && results.net_flows.length > 0) {
+                    detailsHtml += '<div class="mb-4">';
+                    detailsHtml += '<h6>Net Migration Flows by Region</h6>';
+                    detailsHtml += '<div class="table-responsive">';
+                    detailsHtml += '<table class="table table-dark table-striped">';
+                    detailsHtml += '<thead><tr><th>Region</th><th>Inflow</th><th>Outflow</th><th>Net Flow</th></tr></thead>';
+                    detailsHtml += '<tbody>';
+
+                    results.net_flows.forEach(row => {
+                        const netFlowClass = row.net_flow > 0 ? 'text-success' : 'text-danger';
+                        detailsHtml += `<tr>
+                            <td>${row.region}</td>
+                            <td>${row.inflow.toFixed(2)}</td>
+                            <td>${row.outflow.toFixed(2)}</td>
+                            <td class="${netFlowClass}">${row.net_flow.toFixed(2)}</td>
+                        </tr>`;
+                    });
+
+                    detailsHtml += '</tbody></table></div></div>';
+                }
+
+                // Statistical data
+                if (results.statistical_data && results.statistical_data.length > 0) {
+                    detailsHtml += '<div class="mb-4">';
+                    detailsHtml += '<h6>Statistical Data</h6>';
+                    detailsHtml += '<div class="table-responsive">';
+                    detailsHtml += '<table class="table table-dark table-striped">';
+
+                    // Create header row
+                    detailsHtml += '<thead><tr>';
+                    Object.keys(results.statistical_data[0]).forEach(key => {
+                        detailsHtml += `<th>${key}</th>`;
+                    });
+                    detailsHtml += '</tr></thead>';
+
+                    // Create data rows
+                    detailsHtml += '<tbody>';
+                    results.statistical_data.forEach(row => {
+                        detailsHtml += '<tr>';
+                        Object.values(row).forEach(value => {
+                            detailsHtml += `<td>${typeof value === 'number' ? value.toFixed(2) : value}</td>`;
+                        });
+                        detailsHtml += '</tr>';
+                    });
+
+                    detailsHtml += '</tbody></table></div></div>';
+                }
+
+                // Flow matrix
+                if (results.flow_matrix) {
+                    detailsHtml += '<div class="mb-4">';
+                    detailsHtml += '<h6>Flow Matrix</h6>';
+
+                    if (Array.isArray(results.flow_matrix) && results.flow_matrix.length > 0) {
+                        detailsHtml += '<div class="table-responsive">';
+                        detailsHtml += '<table class="table table-dark table-striped">';
+                        detailsHtml += '<thead><tr><th>From Region</th><th>To Region</th><th>Flow Value</th></tr></thead>';
+                        detailsHtml += '<tbody>';
+
+                        results.flow_matrix.forEach(row => {
+                            detailsHtml += `<tr>
+                                <td>${row.from_region || row.source || '-'}</td>
+                                <td>${row.to_region || row.destination || '-'}</td>
+                                <td>${typeof row.value === 'number' ? row.value.toFixed(2) : row.value || '-'}</td>
+                            </tr>`;
+                        });
+
+                        detailsHtml += '</tbody></table></div>';
+                    } else {
+                        detailsHtml += '<p>This data would be better visualized with the Flow Map visualization.</p>';
+                    }
+
+                    detailsHtml += '</div>';
+                }
+
+                // Correlation matrix
+                if (results.correlation_matrix) {
+                    detailsHtml += '<div class="mb-4">';
+                    detailsHtml += '<h6>Correlation Matrix</h6>';
+                    detailsHtml += '<div class="table-responsive">';
+                    detailsHtml += '<table class="table table-dark table-striped">';
+
+                    // Create header row
+                    detailsHtml += '<thead><tr><th>Metric</th>';
+                    Object.keys(results.correlation_matrix).forEach(key => {
+                        detailsHtml += `<th>${key}</th>`;
+                    });
+                    detailsHtml += '</tr></thead>';
+
+                    // Create data rows
+                    detailsHtml += '<tbody>';
+                    Object.entries(results.correlation_matrix).forEach(([metric, correlations]) => {
+                        detailsHtml += `<tr><td>${metric}</td>`;
+                        Object.values(correlations).forEach(value => {
+                            // Color code based on correlation strength
+                            let cellColor = '';
+                            if (value > 0.7) cellColor = 'background-color: rgba(0, 255, 0, 0.2);';
+                            else if (value > 0.4) cellColor = 'background-color: rgba(0, 255, 0, 0.1);';
+                            else if (value < -0.7) cellColor = 'background-color: rgba(255, 0, 0, 0.2);';
+                            else if (value < -0.4) cellColor = 'background-color: rgba(255, 0, 0, 0.1);';
+
+                            detailsHtml += `<td style="${cellColor}">${value.toFixed(2)}</td>`;
+                        });
+                        detailsHtml += '</tr>';
+                    });
+
+                    detailsHtml += '</tbody></table></div></div>';
+                }
+
+                // Top flows (for Inter-city Migration)
+                if (results.top_flows && results.top_flows.length > 0) {
+                    detailsHtml += '<div class="mb-4">';
+                    detailsHtml += '<h6>Top Migration Flows</h6>';
+                    detailsHtml += '<div class="table-responsive">';
+                    detailsHtml += '<table class="table table-dark table-striped">';
+                    detailsHtml += '<thead><tr><th>Flow</th><th>Value</th></tr></thead>';
+                    detailsHtml += '<tbody>';
+
+                    results.top_flows.forEach(row => {
+                        detailsHtml += `<tr>
+                            <td>${row.flow_name || `${row.from_region || row.source} → ${row.to_region || row.destination}`}</td>
+                            <td>${typeof row.value === 'number' ? row.value.toFixed(2) : row.value || '-'}</td>
+                        </tr>`;
+                    });
+
+                    detailsHtml += '</tbody></table></div></div>';
+                }
+
+                if (detailsHtml === '') {
+                    detailsHtml = '<p>No detailed results available.</p>';
+                }
+
+                $('#details-content').html(detailsHtml);
+            }
+
+            // Helper function to update select options
+            function updateSelectOptions(selectId, options) {
+                const select = $(`#${selectId}`);
+                select.empty();
+
+                options.forEach(option => {
+                    select.append(new Option(option, option));
+                });
+            }
+
+            // Extend String prototype to convert a string to title case
+            String.prototype.toTitleCase = function() {
+                return this.replace(/\w\S*/g, function(txt) {
+                    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+                });
+            };
+        });
+    </script>
+</body>
+</html>
